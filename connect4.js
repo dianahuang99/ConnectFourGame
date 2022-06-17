@@ -62,6 +62,87 @@ function findSpotForCol(x) {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
+  const topRow = document.querySelectorAll("#column-top td");
+  const body = document.querySelector("body");
+  const cells = document.getElementsByTagName("td");
+  const gameTable = document.getElementById("board");
+
+  // for (let i = 0; i < WIDTH; i++) {
+  //   topRow.addEventListener("click", function () {
+  //     console.log("hi");
+  //   });
+  // }
+
+  // for (let cell of topRow) {
+  //   cell.addEventListener("click", function () {
+  //     console.log("hi");
+  //   });
+  // }
+
+  topRow[0].addEventListener("click", function () {
+    const playerPiece = document.createElement("div");
+    playerPiece.classList.add("piece");
+    playerPiece.classList.add("p1");
+    cells["5-0"].append(playerPiece);
+  });
+  topRow[1].addEventListener("click", function () {
+    const playerPiece = document.createElement("div");
+    playerPiece.classList.add("piece");
+    playerPiece.classList.add("p1");
+    cells["5-1"].append(playerPiece);
+  });
+  topRow[2].addEventListener("click", function () {
+    const playerPiece = document.createElement("div");
+    playerPiece.classList.add("piece");
+    playerPiece.classList.add("p1");
+    cells["5-2"].append(playerPiece);
+  });
+  topRow[3].addEventListener("click", function () {
+    const playerPiece = document.createElement("div");
+    playerPiece.classList.add("piece");
+    playerPiece.classList.add("p1");
+    cells["5-3"].append(playerPiece);
+  });
+  topRow[4].addEventListener("click", function () {
+    const playerPiece = document.createElement("div");
+    playerPiece.classList.add("piece");
+    playerPiece.classList.add("p1");
+    cells["5-4"].append(playerPiece);
+  });
+  topRow[5].addEventListener("click", function () {
+    const playerPiece = document.createElement("div");
+    playerPiece.classList.add("piece");
+    playerPiece.classList.add("p1");
+    cells["5-5"].append(playerPiece);
+  });
+  topRow[6].addEventListener("click", function () {
+    const playerPiece = document.createElement("div");
+    playerPiece.classList.add("piece");
+    playerPiece.classList.add("p1");
+    cells["5-6"].append(playerPiece);
+  });
+
+  // if (playerPiece.classList.contains("p1")) {
+  //   playerPiece.classList.remove("p1");
+  //   playerPiece.classList.add("p2");
+  // }
+  // if (playerPiece.classList.contains("p2")) {
+  //   playerPiece.classList.remove("p2");
+  //   playerPiece.classList.add("p1");
+  // }
+
+  // for (let topCell of topRow) {
+  //   topCell.addEventListener("click", function () {
+  //     for (let idx = 0; idx < WIDTH; idx++) {
+  //       if (topCell.getAttribute("id") == idx) {
+  //         console.log(idx);
+  //       }
+  //     }
+  //   });
+  // }
+  // hi[0].addEventListener("click", function () {
+  //   hi["0-6"].style.backgroundColor = "blue";
+  // });
 }
 
 /** endGame: announce game end */
