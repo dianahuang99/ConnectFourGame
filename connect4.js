@@ -62,87 +62,11 @@ function findSpotForCol(x) {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
-  const topRow = document.querySelectorAll("#column-top td");
-  const body = document.querySelector("body");
+  const newPiece = document.createElement("div");
   const cells = document.getElementsByTagName("td");
-  const gameTable = document.getElementById("board");
-
-  // for (let i = 0; i < WIDTH; i++) {
-  //   topRow.addEventListener("click", function () {
-  //     console.log("hi");
-  //   });
-  // }
-
-  // for (let cell of topRow) {
-  //   cell.addEventListener("click", function () {
-  //     console.log("hi");
-  //   });
-  // }
-
-  topRow[0].addEventListener("click", function () {
-    const playerPiece = document.createElement("div");
-    playerPiece.classList.add("piece");
-    playerPiece.classList.add("p1");
-    cells["5-0"].append(playerPiece);
-  });
-  topRow[1].addEventListener("click", function () {
-    const playerPiece = document.createElement("div");
-    playerPiece.classList.add("piece");
-    playerPiece.classList.add("p1");
-    cells["5-1"].append(playerPiece);
-  });
-  topRow[2].addEventListener("click", function () {
-    const playerPiece = document.createElement("div");
-    playerPiece.classList.add("piece");
-    playerPiece.classList.add("p1");
-    cells["5-2"].append(playerPiece);
-  });
-  topRow[3].addEventListener("click", function () {
-    const playerPiece = document.createElement("div");
-    playerPiece.classList.add("piece");
-    playerPiece.classList.add("p1");
-    cells["5-3"].append(playerPiece);
-  });
-  topRow[4].addEventListener("click", function () {
-    const playerPiece = document.createElement("div");
-    playerPiece.classList.add("piece");
-    playerPiece.classList.add("p1");
-    cells["5-4"].append(playerPiece);
-  });
-  topRow[5].addEventListener("click", function () {
-    const playerPiece = document.createElement("div");
-    playerPiece.classList.add("piece");
-    playerPiece.classList.add("p1");
-    cells["5-5"].append(playerPiece);
-  });
-  topRow[6].addEventListener("click", function () {
-    const playerPiece = document.createElement("div");
-    playerPiece.classList.add("piece");
-    playerPiece.classList.add("p1");
-    cells["5-6"].append(playerPiece);
-  });
-
-  // if (playerPiece.classList.contains("p1")) {
-  //   playerPiece.classList.remove("p1");
-  //   playerPiece.classList.add("p2");
-  // }
-  // if (playerPiece.classList.contains("p2")) {
-  //   playerPiece.classList.remove("p2");
-  //   playerPiece.classList.add("p1");
-  // }
-
-  // for (let topCell of topRow) {
-  //   topCell.addEventListener("click", function () {
-  //     for (let idx = 0; idx < WIDTH; idx++) {
-  //       if (topCell.getAttribute("id") == idx) {
-  //         console.log(idx);
-  //       }
-  //     }
-  //   });
-  // }
-  // hi[0].addEventListener("click", function () {
-  //   hi["0-6"].style.backgroundColor = "blue";
-  // });
+  newPiece.classList.add("p1");
+  newPiece.classList.add("piece");
+  cells[`${y}-${x}`].append(newPiece);
 }
 
 /** endGame: announce game end */
@@ -165,6 +89,7 @@ function handleClick(evt) {
 
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
+
   placeInTable(y, x);
 
   // check for win
@@ -177,6 +102,18 @@ function handleClick(evt) {
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
+  const piece = document.querySelector("td div");
+  if (currPlayer === 1) {
+    piece.classList.remove("p1");
+    piece.classList.add("p2");
+    currPlayer = 2;
+    console.log(currPlayer);
+  } else if (currPlayer === 2) {
+    piece.classList.remove("p2");
+    piece.classList.add("p1");
+    currPlayer = 1;
+    console.log(currPlayer);
+  }
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
