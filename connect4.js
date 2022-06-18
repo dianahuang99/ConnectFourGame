@@ -64,7 +64,7 @@ function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
   const newPiece = document.createElement("div");
   const cells = document.getElementsByTagName("td");
-  newPiece.classList.add("p1");
+  newPiece.classList.add(`p${currPlayer}`);
   newPiece.classList.add("piece");
   cells[`${y}-${x}`].append(newPiece);
 }
@@ -102,17 +102,10 @@ function handleClick(evt) {
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
-  const piece = document.querySelector("td div");
   if (currPlayer === 1) {
-    piece.classList.remove("p1");
-    piece.classList.add("p2");
     currPlayer = 2;
-    console.log(currPlayer);
   } else if (currPlayer === 2) {
-    piece.classList.remove("p2");
-    piece.classList.add("p1");
     currPlayer = 1;
-    console.log(currPlayer);
   }
 }
 
