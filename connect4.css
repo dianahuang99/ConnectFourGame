@@ -29,7 +29,7 @@ h1 {
 
 /* TODO: make pieces red/blue,  depending on player 1/2 piece */
 .p1 {
-  background-color: cyan;
+  background-color: rgb(87, 235, 255);
 }
 
 .p2 {
@@ -47,4 +47,8 @@ h1 {
 
 body {
   background-color: rgba(214, 164, 255, 0.336);
+}
+
+.end {
+  pointer-events: none;
 }

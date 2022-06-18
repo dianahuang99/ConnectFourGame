@@ -4,7 +4,6 @@
  * column until a player gets four-in-a-row (horiz, vert, or diag) or until
  * board fills (tie)
  */
-const cells = document.getElementsByTagName("td");
 const WIDTH = 7;
 const HEIGHT = 6;
 
@@ -74,10 +73,12 @@ function placeInTable(y, x) {
 }
 
 /** endGame: announce game end */
-
 function endGame(msg) {
   // TODO: pop up alert message
-  alert(msg);
+
+  setTimeout(function () {
+    alert(msg);
+  }, 100);
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -100,19 +101,20 @@ function handleClick(evt) {
 
   // check for win
   if (checkForWin()) {
-    return endGame(`Player ${currPlayer} won!`);
+    return endGame(`Congrats Player ${currPlayer}!`);
   }
 
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
+
   if (
-    board.forEach(function (arr) {
+    board.every(function (arr) {
       return arr.every(function (cell) {
         return cell;
       });
     })
   ) {
-    endGame();
+    endGame("It's a tie!");
   }
 
   // switch players
