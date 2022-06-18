@@ -1,4 +1,8 @@
 /* game board table */
+#game {
+  display: flex;
+  justify-content: center;
+}
 
 #board td {
   width: 70px;
@@ -6,6 +10,13 @@
   border: solid 1px #666;
 }
 
+h1 {
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 45px;
+  color: rgb(250, 51, 190);
+}
 /* pieces are div within game table cells: draw as colored circles */
 
 .piece {
@@ -27,9 +38,13 @@
 /* column-top is table row of clickable areas for each column */
 
 #column-top td {
-  border: dashed 1px lightgray;
+  border: dashed 1px rgba(54, 54, 54, 0.308);
 }
 
 #column-top td:hover {
-  background-color: gold;
+  background-color: rgb(255, 255, 189);
+}
+
+body {
+  background-color: rgba(214, 164, 255, 0.336);
 }
