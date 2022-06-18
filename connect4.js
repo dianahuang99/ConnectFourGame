@@ -55,23 +55,10 @@ function makeHtmlBoard() {
 
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 0
-  if (board[HEIGHT - 1][x] == undefined) {
-    return HEIGHT - 1;
-  }
-  if (board[HEIGHT - 2][x] == undefined) {
-    return HEIGHT - 2;
-  }
-  if (board[HEIGHT - 3][x] == undefined) {
-    return HEIGHT - 3;
-  }
-  if (board[HEIGHT - 4][x] == undefined) {
-    return HEIGHT - 4;
-  }
-  if (board[HEIGHT - 5][x] == undefined) {
-    return HEIGHT - 5;
-  }
-  if (board[HEIGHT - 6][x] == undefined) {
-    return HEIGHT - 6;
+  for (let y = HEIGHT - 1; y >= 0; y--) {
+    if (board[y][x] == undefined) {
+      return y;
+    }
   }
 }
 
