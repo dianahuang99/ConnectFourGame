@@ -4,12 +4,12 @@
  * column until a player gets four-in-a-row (horiz, vert, or diag) or until
  * board fills (tie)
  */
-
+const cells = document.getElementsByTagName("td");
 const WIDTH = 7;
 const HEIGHT = 6;
 
 let currPlayer = 1; // active player: 1 or 2
-const board = []; // array of rows, each row is array of cells  (board[y][x])
+let board = []; // array of rows, each row is array of cells  (board[y][x])
 
 /** makeBoard: create in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x])
@@ -55,7 +55,24 @@ function makeHtmlBoard() {
 
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 0
-  return 0;
+  if (board[HEIGHT - 1][x] == undefined) {
+    return HEIGHT - 1;
+  }
+  if (board[HEIGHT - 2][x] == undefined) {
+    return HEIGHT - 2;
+  }
+  if (board[HEIGHT - 3][x] == undefined) {
+    return HEIGHT - 3;
+  }
+  if (board[HEIGHT - 4][x] == undefined) {
+    return HEIGHT - 4;
+  }
+  if (board[HEIGHT - 5][x] == undefined) {
+    return HEIGHT - 5;
+  }
+  if (board[HEIGHT - 6][x] == undefined) {
+    return HEIGHT - 6;
+  }
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
@@ -73,6 +90,7 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
+  alert(msg);
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -89,6 +107,7 @@ function handleClick(evt) {
 
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
+  board[y][x] = currPlayer;
 
   placeInTable(y, x);
 
@@ -99,6 +118,15 @@ function handleClick(evt) {
 
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
+  if (
+    board.forEach(function (arr) {
+      return arr.every(function (cell) {
+        return cell;
+      });
+    })
+  ) {
+    endGame();
+  }
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
